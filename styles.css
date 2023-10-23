@@ -1,0 +1,186 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Original styles */
+body {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #111;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.frequency-dropdown, .callsign-input, #otherPeerId {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #444;
+}
+
+.voice-comm-button, #connectButton, #toggleEffect {
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.patreon-link a {
+    color: #e85b46; 
+    text-decoration: none;
+}
+
+.footer {
+    padding: 10px 20px;
+    background-color: #111;
+    text-align: center;
+}
+
+/* Night Mode Styles */
+body.night-mode-active {
+    background-color: #fff;
+    color: #2a2a2a;
+}
+
+body.night-mode-active .header, body.night-mode-active .footer {
+    background-color: #ddd;
+}
+
+body.night-mode-active .night-mode {
+    cursor: pointer;
+}
+
+body.night-mode-active .frequency-dropdown, body.night-mode-active .callsign-input, body.night-mode-active #otherPeerId {
+    background-color: #eee;
+    color: #2a2a2a;
+}
+
+body.night-mode-active .voice-comm-button, body.night-mode-active #connectButton, body.night-mode-active #toggleEffect {
+    background-color: #eee;
+    color: #2a2a2a;
+}
+
+body.night-mode-active .patreon-link a {
+    color: #2a2a2a;
+}
+
+.settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-overlay.active {
+    display: flex;
+}
+
+.settings-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.settings-button.active {
+    background-color: green;
+    color: white;
+}
+#loginButton {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+body.night-mode-active #loginButton {
+    background-color: #eee;
+    color: #2a2a2a;
+}
+
+#showActiveUsersButton {
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+}
+/* CSS for Sign-In Modal */
+.signin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.signin-modal-content {
+    background-color: #444;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    color: #fff;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-field, .signin-button {
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
