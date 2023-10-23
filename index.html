@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>rPilot</title>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3865507286684742"
+     crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js">
+// JavaScript for handling popup
+function openSignInModal() {
+    document.getElementById('signinModal').style.display = 'block';
+}
+
+function closeSignInModal() {
+    document.getElementById('signinModal').style.display = 'none';
+}
+
+// Add this code inside your existing script tag
+
+// Initialize a Google Auth provider object
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// Function to handle Google Sign-In
+function googleSignIn() {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert("Google Sign-In successful");
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Google Sign-In failed: " + errorMessage);
+    });
+}
+</script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js">
+// JavaScript for handling popup
+function openSignInModal() {
+    document.getElementById('signinModal').style.display = 'block';
+}
+
+function closeSignInModal() {
+    document.getElementById('signinModal').style.display = 'none';
+}
+
+// Add this code inside your existing script tag
+
+// Initialize a Google Auth provider object
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// Function to handle Google Sign-In
+function googleSignIn() {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert("Google Sign-In successful");
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Google Sign-In failed: " + errorMessage);
+    });
+}
+</script>
+    <script src="https://unpkg.com/peerjs@1/dist/peerjs.min.js">
+// JavaScript for handling popup
+function openSignInModal() {
+    document.getElementById('signinModal').style.display = 'block';
+}
+
+function closeSignInModal() {
+    document.getElementById('signinModal').style.display = 'none';
+}
+
+// Add this code inside your existing script tag
+
+// Initialize a Google Auth provider object
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// Function to handle Google Sign-In
+function googleSignIn() {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert("Google Sign-In successful");
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Google Sign-In failed: " + errorMessage);
+    });
+}
+</script>
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3865507286684742"
+     crossorigin="anonymous">
+// JavaScript for handling popup
+function openSignInModal() {
+    document.getElementById('signinModal').style.display = 'block';
+}
+
+function closeSignInModal() {
+    document.getElementById('signinModal').style.display = 'none';
+}
+
+// Add this code inside your existing script tag
+
+// Initialize a Google Auth provider object
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// Function to handle Google Sign-In
+function googleSignIn() {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert("Google Sign-In successful");
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Google Sign-In failed: " + errorMessage);
+    });
+}
+</script>
+</head>
+
+
+<body>
+    <div class="container">
+        
+    <div class="header">
+        <button id="signinButton" onclick="openSignInModal()">Sign In</button>
+    
+            <div class="logo">
+                <img src="rpilotwhite.png" alt="Your Logo">
+            </div>
+            <div class="night-mode" id="nightModeToggle">
+                NIGHT MODE
+            </div>
+        </div>
+
+        <div class="content">
+            <p>Create/Update Your Frequency: <input type="text" id="createPeerId" placeholder="Enter your custom ID"></p>
+            <button id="createButton">Set Frequency</button>
+
+            <p>Your Current Frequency: <span id="myPeerId"></span></p>
+            <input type="text" id="otherPeerId" placeholder="ex 121300">
+            <button id="connectButton">Connect to Peer</button>
+            <div class="patreon-link">
+                <a href="https://www.patreon.com/NationalATCAssociationofRoblox">Support us on Patreon</a>
+            </div>
+        </div>
+        <div class="content">
+            <audio id="remoteAudio" controls></audio>
+            <button id="openSettings">Settings</button>
+        </div>
+        <div class="footer">
+            ©2023 National ATC Association of Roblox
+        </div>
+    </div>
+
+    <div class="settings-overlay" id="settingsOverlay">
+        <div class="settings-content">
+            <h2>Settings</h2>
+            <p>Volume: <input type="range" id="volumeControl" min="0" max="1" step="0.1"></p>
+            <button id="toggleEffect" class="settings-button">Toggle Radio Effect</button>
+            <button id="closeSettings">Close</button>
+        </div>
+    </div>
+
+    <script>
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+  				apiKey: "N/A",
+  				authDomain: "N/A",
+  				projectId: "N/A",
+ 				storageBucket: "N/A",
+  				messagingSenderId: "N/A",
+  				appId: "N/A"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // Sign up
+        function signUp() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                alert("Sign up successful");
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+            });
+        }
+
+        // Sign in
+        function signIn() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                var user = userCredential.user;
+                alert("Sign in successful");
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert(errorMessage);
+            });
+        }
+
+        // Sign out
+        function signOut() {
+            auth.signOut()
+            .then(() => {
+                alert("Sign out successful");
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+        }
+
+        // Auth state changed
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User is signed in
+                var uid = user.uid;
+                console.log("User signed in: " + uid);
+            } else {
+                // User is signed out
+                console.log("User signed out");
+            }
+        });
+
+        let customPeer;
+        let radioEffectActive = false;
+        let audioContext, audioSource, bandpassFilter;
+
+        // Function to setup a call and handle incoming audio stream
+        function setupCall(call) {
+            call.on('stream', function(remoteStream) {
+                // Set the remote stream to the audio element
+                let audio = document.getElementById('remoteAudio');
+                audio.srcObject = remoteStream;
+                audio.play();
+
+                // Set up audio context and effects
+                audioContext = new AudioContext();
+                audioSource = audioContext.createMediaStreamSource(remoteStream);
+                bandpassFilter = audioContext.createBiquadFilter();
+                bandpassFilter.type = 'bandpass';
+                bandpassFilter.frequency.value = 1000;
+                bandpassFilter.Q.value = 1;
+                audioSource.connect(audioContext.destination);
+            });
+        }
+
+        // Logic to create or set your peer/frequency
+        document.getElementById('createButton').addEventListener('click', function() {
+            const customID = document.getElementById('createPeerId').value;
+
+            if (customPeer) {
+                customPeer.destroy();
+            }
+
+            customPeer = new Peer(customID, {
+                host: 'midnightblueinternationalworkspace.ejquigley.repl.co',
+                port: 443,
+                path: '/',
+                secure: true
+            });
+
+            customPeer.on('open', function(id) {
+                document.getElementById('myPeerId').textContent = id;
+            });
+
+            // Handle incoming calls
+            customPeer.on('call', function(call) {
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+                    call.answer(stream); // Answer the call with our stream
+                    setupCall(call);
+                }).catch(function(err) {
+                    console.error('Failed to get local stream', err);
+                });
+            });
+        });
+
+        // Connect to a peer
+        document.getElementById('connectButton').addEventListener('click', function() {
+            if (!customPeer) {
+                alert('Please set your frequency first.');
+                return;
+            }
+
+            const otherPeerId = document.getElementById('otherPeerId').value;
+
+            // Get our audio stream and start the call
+            navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream) {
+                const call = customPeer.call(otherPeerId, stream);
+                setupCall(call);
+            }).catch(function(err) {
+                console.error('Failed to get local stream', err);
+            });
+        });
+
+        // Night mode toggle
+        document.getElementById('nightModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('night-mode-active');
+            if (document.body.classList.contains('night-mode-active')) {
+                this.textContent = 'DAY MODE';
+            } else {
+                this.textContent = 'NIGHT MODE';
+            }
+        });
+
+        // Settings overlay
+        document.getElementById('openSettings').addEventListener('click', function() {
+            document.getElementById('settingsOverlay').classList.add('active');
+        });
+
+        document.getElementById('closeSettings').addEventListener('click', function() {
+            document.getElementById('settingsOverlay').classList.remove('active');
+        });
+
+        // Volume control
+        document.getElementById('volumeControl').addEventListener('input', function() {
+            document.getElementById('remoteAudio').volume = this.value;
+        });
+
+        // Toggle radio effect
+        document.getElementById('toggleEffect').addEventListener('click', function() {
+            this.classList.toggle('active');
+            radioEffectActive = !radioEffectActive;
+
+            if (radioEffectActive) {
+                audioSource.disconnect(audioContext.destination);
+                audioSource.connect(bandpassFilter);
+                bandpassFilter.connect(audioContext.destination);
+            } else {
+                audioSource.disconnect(bandpassFilter);
+                audioSource.connect(audioContext.destination);
+            }
+        });
+
+    
+// JavaScript for handling popup
+function openSignInModal() {
+    document.getElementById('signinModal').style.display = 'block';
+}
+
+function closeSignInModal() {
+    document.getElementById('signinModal').style.display = 'none';
+}
+
+// Add this code inside your existing script tag
+
+// Initialize a Google Auth provider object
+var provider = new firebase.auth.GoogleAuthProvider();
+
+// Function to handle Google Sign-In
+function googleSignIn() {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert("Google Sign-In successful");
+    }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert("Google Sign-In failed: " + errorMessage);
+    });
+}
+</script>
+</body>
+
+</html>
+
+<!-- Sign-In Popup -->
+<div id="signinModal" class="signin-modal">
+    <div class="signin-modal-content">
+        <span class="close" onclick="closeSignInModal()">&times;</span>
+        <h2>Sign In</h2>
+        <input type="text" id="email" placeholder="Email" class="input-field">
+        <input type="password" id="password" placeholder="Password" class="input-field">
+        <button onclick="signIn()" class="signin-button">Email Login</button>
+        <button onclick="googleSignIn()" class="signin-button">Google Sign-In</button>
+    </div>
+</div>
